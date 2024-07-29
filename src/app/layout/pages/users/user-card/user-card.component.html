@@ -1,0 +1,8 @@
+<div class="w-full rounded-md bg-blue-300 flex flex-col items-center item p-5" [routerLink]="['/view/'+ user()?.id]">
+  <img [src]="user()?.avatar" alt="" srcset="" width="50x" height="50px">
+  <div class="flex gap-2">
+    <span class="text-white font-bold">{{user()?.first_name}}</span>
+    <span class="text-white font-bold">{{user()?.last_name}}</span>
+  </div>
+  <span class="text-white font-bold">{{user()?.email}}</span>
+</div>

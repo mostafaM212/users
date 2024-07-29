@@ -1,0 +1,21 @@
+<div class="h-full ">
+  <div class="flex justify-center items-center mb-10 border-1 mt-5">
+    <div class="lg:w-1/4 md:w-1/2 sm:w-full bord flex p-2">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+      <input type="text" class="w-full input" [(ngModel)]="search" placeholder="user id">
+    </div>
+  </div>
+  <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 m-5 gap-3">
+    @if (!searchedUsers().length) {
+      @for(user of users() | paginate: { itemsPerPage: pageSize,currentPage: p(),totalItems: total }; track user.id){
+        <app-user-card [user]="user"/>
+      }
+    }@else {
+      @for(user of searchedUsers() ; track user.id){
+        <app-user-card [user]="user"/>
+      }
+    }
+  </div>
+  <div class="w-full flex justify-center items-center">
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>  </div>
+</div>

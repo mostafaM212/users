@@ -1,0 +1,13 @@
+.item {
+       transform: scale(1);
+       transition: all .2s ease-in;
+
+       img {
+              border-radius: 50%;
+       }
+
+       &:hover {
+              transform: scale(1.05);
+              cursor: pointer;
+       }
+}
